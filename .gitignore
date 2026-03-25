@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-# Ignore environment variables
-.env
-
-# Node modules (if using Node.js)
+# Node modules
 node_modules/
+
+# Environment variables
+.env
 
 # Logs
 *.log
@@ -11,8 +10,10 @@ node_modules/
 # OS files
 .DS_Store
 Thumbs.db
-=======
-node_modules/
 
-.env
->>>>>>> c134afb (add gitignore file)
+# Coverage directory (if using Jest)
+coverage/
+
+# Build directory (if applicable)
+dist/
+build/
