@@ -1,0 +1,33 @@
+<header class="sticky top-0 z-50 w-full glass shadow-sm dark:shadow-none transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="p-2 bg-indigo-600 rounded-lg text-white">
+          <i data-lucide="users" class="w-6 h-6"></i>
+        </div>
+        <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+          UserHub
+        </span>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors">Register</a>
+        <a href="/read" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors">User Database</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300">
+          <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+        </button>
+        <a href="/" class="hidden sm:flex btn-primary !py-2 !px-4 text-sm">
+          <i data-lucide="plus-circle" class="w-4 h-4"></i>
+          New User
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

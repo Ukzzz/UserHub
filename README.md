@@ -1,124 +1,68 @@
-# User Management System
+# UserHub | Professional CRUD Application
 
-A modern, responsive web application for managing user information with a beautiful dark/light theme interface. Built with Node.js, Express, MongoDB, and EJS templating engine.
+**UserHub** is a modern, responsive, and full-featured User Management system built with Node.js, Express, and MongoDB. It features a premium design system, an MVC architecture, and a seamless user experience.
+
+![UserHub Logo](https://img.shields.io/badge/UserHub-Professional-indigo)
+![Node.js](https://img.shields.io/badge/Node.js-v16+-green)
+![Express](https://img.shields.io/badge/Express-4.x-blue)
+![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38b2ac)
 
 ## ✨ Features
 
-- **User Registration**: Add new users with name, age, and CNIC
-- **User Listing**: View all registered users in a clean, organized table
-- **Edit Users**: Update existing user information
-- **Delete Users**: Remove users from the system
-- **Responsive Design**: Works on desktop and mobile devices
-- **Dark/Light Theme**: Toggle between light and dark modes
-- **Modern UI**: Built with Tailwind CSS for a sleek, professional look
+- 🎨 **Premium UI/UX**: Sophisticated Design System using Tailwind CSS and Outfit typography.
+- 🌓 **Dynamic Themes**: Built-in Light and Dark modes with seamless transitions.
+- 🏗️ **MVC Architecture**: Clean separation of concerns with dedicated Controllers and Models.
+- 🧩 **Modular Components**: Reusable EJS partials for high maintainability.
+- ⚡ **Full CRUD**: Create, Read, Update, and Delete users with real-time feedback.
+- 🛡️ **Robust Validation**: Schema-level validation and professional error handling.
+- 🖼️ **Avatar Support**: Dynamic profile image handling with fallbacks.
 
-## 🚀 Tech Stack
+## 🚀 Getting Started
 
-- **Backend**: Node.js, Express
-- **Database**: MongoDB with Mongoose ODM
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Templating**: EJS (Embedded JavaScript)
-- **Styling**: Tailwind CSS
-- **Environment Management**: dotenv
+### Prerequisites
+- Node.js (v16 or higher)
+- MongoDB account (Atlas or local)
 
-## 🛠️ Prerequisites
-
-- Node.js (v14 or later)
-- npm (comes with Node.js)
-- MongoDB Atlas account or local MongoDB instance
-
-## 🚀 Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone [your-repository-url]
-   cd [repository-name]
-   ```
-
-2. **Install dependencies**
+### Installation
+1. Clone the repository.
+2. Install dependencies:
    ```bash
    npm install
    ```
-
-3. **Set up environment variables**
-   Create a `.env` file in the root directory and add your MongoDB connection string:
-   ```
+3. Set up your environment variables:
+   Create a `.env` file in the root directory and add:
+   ```env
    API_KEY=your_mongodb_connection_string
+   PORT=3001
    ```
-
-4. **Start the development server**
+4. Start the application:
    ```bash
-   node app.js
+   npm start
    ```
 
-5. **Open in browser**
-   Visit `http://localhost:3001` in your web browser
+## 📁 Project Structure
 
-## 📂 Project Structure
-
-```
-project-root/
-├── .env                    # Environment variables
-├── app.js                 # Main application file
-├── db.js                  # Database connection
-├── package.json           # Project dependencies
-├── README.md              # Project documentation
-├── Model/
-│   └── user.js            # User model/schema
-└── views/
-    ├── home.ejs           # Home page with registration form
-    ├── read.ejs           # User listing page
-    └── edit.ejs           # Edit user page
+```text
+├── controllers/       # Business logic for routes
+├── models/            # Mongoose schemas (User)
+├── public/            # Static assets
+│   ├── css/          # Modern Design System (style.css)
+│   └── js/           # Centralized theme logic (main.js)
+├── views/             # EJS templates
+│   ├── partials/     # Reusable UI components (navbar, footer, etc.)
+│   ├── home.ejs      # Registration Page
+│   ├── read.ejs      # User Database
+│   └── edit.ejs      # User Update Page
+├── app.js             # Application entry point
+├── db.js              # Database connection logic
+└── package.json       # Project dependencies
 ```
 
-## 🔧 API Endpoints
-
-| Method | Endpoint    | Description                     |
-|--------|-------------|---------------------------------|
-| GET    | /           | Home page with registration form |
-| POST   | /read       | Create a new user               |
-| GET    | /read       | List all users                  |
-| GET    | /edit/:id   | Show edit form for a user       |
-| PUT    | /edit/:id   | Update a user                   |
-| DELETE | /read/:id   | Delete a user                   |
-
-## 🎨 Features in Detail
-
-### User Registration
-- Form validation for all fields
-- Client-side and server-side validation
-- Responsive form layout with modern styling
-
-### User Management
-- View all users in a sortable table
-- Edit user details with a pre-filled form
-- Delete users with confirmation
-
-### UI/UX
-- Smooth animations and transitions
-- Responsive design for all screen sizes
-- Dark/light theme toggle
-- Modern, clean interface with Tailwind CSS
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## 🛠️ Tech Stack
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB & Mongoose
+- **Frontend**: EJS, Tailwind CSS, Lucide Icons
+- **Design**: Google Fonts (Outfit), Custom Glassmorphism CSS
 
 ## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Express.js](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [EJS](https://ejs.co/)
-
----
-
-Made with ❤️ by [Your Name]
+This project is licensed under the MIT License.

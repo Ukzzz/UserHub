@@ -1,78 +1,41 @@
 const express = require('express');
 const app = express();
-const path = require('path'); 
-const connectDB = require('./db');
-const USER = require('./Model/user'); // <-- fixed parenthesis
+const path = require('path');
 const methodOverride = require('method-override');
+const connectDB = require('./db');
+const userController = require('./controllers/userController');
 
+// Configuration
+const PORT = process.env.PORT || 3001;
 
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
+// View Engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Database Connection
 connectDB();
 
-app.get('/', async (req, res) => {
-  res.render('home'); // home.ejs
+// Routes
+app.get('/', userController.getHome);
+app.post('/read', userController.createUser);
+app.get('/read', userController.getUsers);
+app.get('/edit/:id', userController.getEditUser);
+app.put('/edit/:id', userController.updateUser);
+app.delete('/read/:id', userController.deleteUser);
+
+// Error Handling (basic)
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
 });
 
-// Handle form submission
-app.post('/read', async (req, res) => {
-  try {
-    const user = new USER(req.body);
-    await user.save();
-    res.redirect('/read'); // redirect to read after creation
-  } catch (err) {
-    res.status(400).send("Error: " + err.message);
-  }
-});
-// Show the form
-app.get('/read', async (req, res) => {
-  const users = await USER.find();
-  res.render('read', { users }); // read.ejs
-});
-
-//Delete 
-app.delete('/read/:id', async (req, res) => {
-  try {
-    const user = await USER.findByIdAndDelete(req.params.id);
-    if (!user) {
-      return res.status(404).send("User not found");
-    }
-    res.redirect('/read'); // redirect to read page after deletion
-  } catch (err) {
-    res.status(500).send("Error: " + err.message);
-  }
-});
-// Edit user
-app.get('/edit/:id', async (req, res) => {
-  try {
-    const user = await USER.findById(req.params.id);
-    if (!user) {
-      return res.status(404).send("User not found");
-    }
-    res.render('edit', { user });
-  } catch (err) {
-    res.status(500).send("Error: " + err.message);
-  }
-});
-
-app.put('/edit/:id', async (req, res) => {
-  try {
-    const user = await USER.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!user) {
-      return res.status(404).send("User not found");
-    }
-    res.redirect('/read'); // redirect back to users list after update
-  } catch (err) {
-    res.status(400).send("Error: " + err.message);
-  }
-});
-
-
-const PORT = 3001;
+// Server Initialization
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
